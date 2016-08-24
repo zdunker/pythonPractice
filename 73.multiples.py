@@ -2,10 +2,16 @@ def getMultipleSum(limit,tar1,tar2):
     numDict = {}
     for i in range(2, limit+1):
         numDict[i] = False
-    for i in range(0, limit+1, tar1):
+    
+    i=tar1
+    while i<limit:
         numDict[i] = True
-    for i in range(0, limit+1, tar2):
-        numDict[i] = True
+        i+=tar1
+    i=tar2
+    while i<limit:
+        numDict[tar2] = True
+        i+=tar2
+    
     sum = 0
     for i in numDict.keys():
         if numDict[i]:
@@ -13,4 +19,4 @@ def getMultipleSum(limit,tar1,tar2):
     return sum
 
 if __name__ == "__main__":
-    print getMultipleSum(10, 3, 5)
+    print getMultipleSum(1000, 3, 5)
